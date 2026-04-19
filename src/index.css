@@ -1,0 +1,45 @@
+/* src/index.css */
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-primary: #131C2D;
+    --color-text-primary: #FFFFFF;
+    --color-primary: #06044A;
+    --color-accent-blue: #75C9EA;
+    --color-accent-orange: #FF6600;
+    --font-montserrat: 'Montserrat', sans-serif;
+    --gradient-border: linear-gradient(90deg, #77CDDD 0%, #0BA1DD 100%);
+    --gradient-card: linear-gradient(90deg, rgba(0, 109, 239, 0.1) 0%, rgba(114, 199, 252, 0.1) 100%);
+    --gradient-time-border: linear-gradient(90deg, #006DEF 0%, #72C7FC 100%);
+  }
+  
+  html {
+    min-width: 290px;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #131C2D;
+    color: #FFFFFF;
+    min-width: 290px;
+    overflow-x: auto;
+  }
+  
+  #root {
+    min-width: 290px;
+  }
+}
+
+@layer utilities {
+  .border-gradient {
+    border: 1px solid transparent;
+    background: linear-gradient(#131C2D, #131C2D) padding-box,
+                linear-gradient(90deg, #77CDDD 0%, #0BA1DD 100%) border-box;
+  }
+  
+  .border-gradient-bottom {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(90deg, #77CDDD 0%, #0BA1DD 100%) 1;
+  }
+}
