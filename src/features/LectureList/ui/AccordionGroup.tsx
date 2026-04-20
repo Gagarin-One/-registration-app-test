@@ -1,6 +1,6 @@
 
-import { useState } from 'react'
 import { LectureCard } from './LectureCard'
+import { useAccordion } from '../model/useAccordion'
 import type { LectureGroup } from '../../../entities/lecture/model/types'
 
 interface AccordionGroupProps {
@@ -8,12 +8,12 @@ interface AccordionGroupProps {
 }
 
 export const AccordionGroup = ({ group }: AccordionGroupProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const { isOpen, toggle } = useAccordion(false)
 
   return (
     <div className="w-full lg:max-w-[743px] mb-[24px] lg:mb-[32px] border-gradient-bottom">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggle}
         className="w-full px-0 py-4 flex items-center transition-colors"
       >
         <h3 className="text-h3 text-white">

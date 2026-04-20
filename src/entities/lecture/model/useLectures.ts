@@ -1,4 +1,4 @@
-
+// src/entities/lecture/model/useLectures.ts
 import { create } from 'zustand'
 
 interface LecturesState {
@@ -37,3 +37,6 @@ export const useLectures = create<LecturesState>((set, get) => ({
     selectedCount: 0 
   }),
 }))
+
+export const useSelectedCount = () => useLectures((state) => state.selectedCount)
+export const useIsSelected = (id: string) => useLectures((state) => state.isSelected(id))

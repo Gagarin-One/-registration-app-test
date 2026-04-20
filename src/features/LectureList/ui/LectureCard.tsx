@@ -1,15 +1,16 @@
 
-import type { Lecture } from '../../../entities/lecture/model/types'
-import { useLectures } from '../../../entities/lecture/model/useLectures'
 import { defaultFrame } from '../../../entities/lecture/api/mockData'
+import type { Lecture } from '../../../entities/lecture/model/types'
+import { useLectures, useIsSelected } from '../../../entities/lecture/model/useLectures'
+
 
 interface LectureCardProps {
   lecture: Lecture
 }
 
 export const LectureCard = ({ lecture }: LectureCardProps) => {
-  const { toggleLecture, isSelected } = useLectures()
-  const selected = isSelected(lecture.id)
+  const toggleLecture = useLectures((state) => state.toggleLecture)
+  const selected = useIsSelected(lecture.id)
   const imageSource = lecture.imageUrl || defaultFrame
 
   return (

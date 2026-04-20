@@ -1,9 +1,11 @@
-import { AccordionGroup } from './ui/AccordionGroup'
+
 import { mockLectureGroups } from '../../entities/lecture/api/mockData'
+import { AccordionGroup } from './ui/AccordionGroup'
+
 
 export const LectureList = () => {
   return (
-    <div className="w-full">
+    <div>
       {mockLectureGroups.map((group) => (
         <AccordionGroup key={group.id} group={group} />
       ))}
