@@ -1,13 +1,16 @@
-
+// src/features/LectureList/ui/AccordionGroup.tsx
 import { LectureCard } from './LectureCard'
 import { useAccordion } from '../model/useAccordion'
 import type { LectureGroup } from '../../../entities/lecture/model/types'
 
 interface AccordionGroupProps {
   group: LectureGroup
+  selectedIds: string[]
+  onToggle: (id: string) => void
+  isSelected: (id: string) => boolean
 }
 
-export const AccordionGroup = ({ group }: AccordionGroupProps) => {
+export const AccordionGroup = ({ group,  onToggle, isSelected }: AccordionGroupProps) => {
   const { isOpen, toggle } = useAccordion(false)
 
   return (
@@ -34,7 +37,12 @@ export const AccordionGroup = ({ group }: AccordionGroupProps) => {
       {isOpen && (
         <div>
           {group.lectures.map((lecture) => (
-            <LectureCard key={lecture.id} lecture={lecture} />
+            <LectureCard 
+              key={lecture.id} 
+              lecture={lecture}
+              isSelected={isSelected(lecture.id)}
+              onToggle={() => onToggle(lecture.id)}
+            />
           ))}
         </div>
       )}

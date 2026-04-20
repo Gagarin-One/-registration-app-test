@@ -1,9 +1,8 @@
 
 import { useState, useCallback } from 'react'
-import { useLectures } from '../../../entities/lecture/model/useLectures'
 
 export const useRegistrationWidget = () => {
-  const { selectedCount } = useLectures()
+
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
@@ -26,7 +25,6 @@ export const useRegistrationWidget = () => {
   }, [])
 
   return {
-    selectedCount,
     isSuccessModalOpen,
     isErrorModalOpen,
     errorMessage,

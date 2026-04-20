@@ -1,24 +1,23 @@
-
+// src/features/LectureList/ui/LectureCard.tsx
 import { defaultFrame } from '../../../entities/lecture/api/mockData'
 import type { Lecture } from '../../../entities/lecture/model/types'
-import { useLectures, useIsSelected } from '../../../entities/lecture/model/useLectures'
 
 
 interface LectureCardProps {
   lecture: Lecture
+  isSelected: boolean
+  onToggle: () => void
 }
 
-export const LectureCard = ({ lecture }: LectureCardProps) => {
-  const toggleLecture = useLectures((state) => state.toggleLecture)
-  const selected = useIsSelected(lecture.id)
+export const LectureCard = ({ lecture, isSelected, onToggle }: LectureCardProps) => {
   const imageSource = lecture.imageUrl || defaultFrame
 
   return (
     <div
-      onClick={() => toggleLecture(lecture.id)}
+      onClick={onToggle}
       className={`w-full lg:max-w-[743px] mb-4 cursor-pointer transition-all
         bg-gradient-card rounded-[8px] p-[16px]
-        ${selected ? 'ring-2 ring-accent-blue' : ''}`}
+        ${isSelected ? 'ring-2 ring-accent-blue' : ''}`}
     >
       <div className="flex flex-row items-start gap-3 md:gap-4">
         <div 

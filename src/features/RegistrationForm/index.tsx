@@ -1,7 +1,6 @@
 
 import { InputField } from './ui/InputField'
 import { useRegistrationForm } from './model/useRegistrationForm'
-import { FORM_FIELDS } from './model/formFields'
 
 interface RegistrationFormProps {
   onSuccess: () => void
@@ -9,19 +8,27 @@ interface RegistrationFormProps {
   selectedCount: number
 }
 
+const FORM_FIELDS = {
+  firstRow: [
+    { name: 'fullName' as const, label: 'ФИО*', placeholder: 'Иванов Иван Иванович' },
+    { name: 'phone' as const, label: 'Телефон*', type: 'tel', placeholder: '+7 (987) 654-32-10' }
+  ],
+  secondRow: [
+    { name: 'company' as const, label: 'Компания*', placeholder: 'Название компании' },
+    { name: 'position' as const, label: 'Должность*', placeholder: 'Руководитель отдела...' }
+  ]
+}
+
 export const RegistrationForm = ({ onSuccess, onError, selectedCount }: RegistrationFormProps) => {
   const {
     register,
     handleSubmit,
     errors,
-    isSubmitting,
-    onSubmit
+    isSubmitting
   } = useRegistrationForm({ onSuccess, onError, selectedCount })
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full">
-      
-      {/* Первая строка */}
+    <form onSubmit={handleSubmit} className="flex flex-col w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-[24px]">
         {FORM_FIELDS.firstRow.map((field) => (
           <InputField
@@ -34,8 +41,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
           />
         ))}
       </div>
-
-      {/* Вторая строка */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-[24px] mt-[24px]">
         {FORM_FIELDS.secondRow.map((field) => (
           <InputField
@@ -47,8 +53,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
           />
         ))}
       </div>
-
-      {/* Email */}
+      
       <div className="mt-[24px]">
         <InputField
           label="Email*"
@@ -58,8 +63,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
           {...register('email')}
         />
       </div>
-
-      {/* Textarea */}
+      
       <div className="flex flex-col gap-[8px] mt-[24px]">
         <label className="text-body-m text-white">
           Ваши вопросы к обсуждению
@@ -73,13 +77,11 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
           placeholder="Какие темы вам особенно интересны?"
         />
       </div>
-
-      {/* Кол-во лекций */}
-      <div className="text-body-m text-white mt-[24px]">
+      
+      <div className="text-body-m text-white mt-[48px]">
         Выбрано <span className="text-accent-blue">{selectedCount}</span> лекции
       </div>
-
-      {/* Кнопка */}
+      
       <div className="flex flex-col gap-[8px] mt-[48px]">
         <button
           type="submit"
@@ -91,7 +93,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
         >
           {isSubmitting ? 'Отправка...' : 'Зарегистрироваться'}
         </button>
-
+        
         <p className="text-caption text-center text-white/30">
           Нажимая кнопку, вы соглашаетесь с{' '}
           <span className="underline">политикой обработки персональных данных.</span>

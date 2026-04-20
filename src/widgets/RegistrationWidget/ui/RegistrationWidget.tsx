@@ -1,12 +1,12 @@
-
+// src/widgets/RegistrationWidget/ui/RegistrationWidget.tsx
 import { LectureList } from '../../../features/LectureList'
 import { RegistrationForm } from '../../../features/RegistrationForm'
 import { Modal } from '../../../shared/ui/Modal'
 import { useRegistrationWidget } from '../model/useRegistrationWidget'
+import { useLectureSelection } from '../model/useLectureSelection'
 
 export const RegistrationWidget = () => {
   const {
-    selectedCount,
     isSuccessModalOpen,
     isErrorModalOpen,
     errorMessage,
@@ -15,6 +15,19 @@ export const RegistrationWidget = () => {
     closeSuccessModal,
     closeErrorModal
   } = useRegistrationWidget()
+
+  const {
+    selectedIds,
+    selectedCount,
+    toggleLecture,
+    isSelected,
+    clearSelection
+  } = useLectureSelection()
+
+  const handleSuccessWithClear = () => {
+    clearSelection()
+    handleSuccessSubmit()
+  }
 
   return (
     <div className="flex flex-col lg:flex-row lg:gap-[25px] justify-center">
@@ -27,7 +40,11 @@ export const RegistrationWidget = () => {
             Выберите интересующие вас темы и составьте индивидуальное расписание. Регистрация доступна на каждое событие отдельно.
           </p>
         </div>
-        <LectureList />
+        <LectureList 
+          selectedIds={selectedIds}
+          onToggle={toggleLecture}
+          isSelected={isSelected}
+        />
       </div>
 
       <div className="w-full lg:w-[360px] mx-auto lg:mx-0 mt-[48px] md:mt-8 lg:mt-0">
@@ -40,7 +57,7 @@ export const RegistrationWidget = () => {
         
         <div className="p-[24px] md:p-[48px] bg-gradient-card border border-accent-blue rounded-[8px]">
           <RegistrationForm 
-            onSuccess={handleSuccessSubmit}
+            onSuccess={handleSuccessWithClear}
             onError={handleErrorSubmit}
             selectedCount={selectedCount}
           />

@@ -1,9 +1,8 @@
-
-import { useForm } from 'react-hook-form'
+// src/features/RegistrationForm/model/useRegistrationForm.ts
+import { useForm, type SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback } from 'react'
 import { registrationSchema, type RegistrationFormData } from './schema'
-import { useLectures } from '../../../entities/lecture/model/useLectures'
 
 interface UseRegistrationFormProps {
   onSuccess: () => void
@@ -11,46 +10,49 @@ interface UseRegistrationFormProps {
   selectedCount: number
 }
 
-export const useRegistrationForm = ({
-  onSuccess,
-  onError,
-  selectedCount
-}: UseRegistrationFormProps) => {
-  const { clearSelection } = useLectures()
+interface UseRegistrationFormReturn {
+  register: ReturnType<typeof useForm<RegistrationFormData>>['register']
+  handleSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>
+  errors: ReturnType<typeof useForm<RegistrationFormData>>['formState']['errors']
+  isSubmitting: boolean
+}
 
+export const useRegistrationForm = ({ 
+  onSuccess, 
+  onError, 
+  selectedCount 
+}: UseRegistrationFormProps): UseRegistrationFormReturn => {
   const {
     register,
-    handleSubmit,
+    handleSubmit: hookHandleSubmit,
     formState: { errors, isSubmitting },
     reset
   } = useForm<RegistrationFormData>({
     resolver: zodResolver(registrationSchema)
   })
 
-  const onSubmit = useCallback(async (data: RegistrationFormData) => {
+  const onSubmit: SubmitHandler<RegistrationFormData> = useCallback(async (data) => {
     try {
       const shouldSucceed = Math.random() > 0.3
-
+      
       await new Promise(resolve => setTimeout(resolve, 1500))
-
+      
       if (shouldSucceed) {
         console.log('Form data:', { ...data, selectedLectures: selectedCount })
         onSuccess()
         reset()
-        clearSelection()
       } else {
         throw new Error('Сервер временно недоступен. Пожалуйста, попробуйте позже.')
       }
     } catch (error) {
       onError(error instanceof Error ? error.message : 'Произошла неизвестная ошибка')
     }
-  }, [onSuccess, onError, selectedCount, reset, clearSelection])
+  }, [onSuccess, onError, selectedCount, reset])
 
   return {
     register,
-    handleSubmit,
+    handleSubmit: hookHandleSubmit(onSubmit),
     errors,
-    isSubmitting,
-    onSubmit
+    isSubmitting
   }
 }
