@@ -1,4 +1,4 @@
-// src/entities/lecture/model/useLectures.ts
+
 import { create } from 'zustand'
 
 interface LecturesState {
