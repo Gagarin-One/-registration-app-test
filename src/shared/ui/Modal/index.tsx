@@ -1,4 +1,4 @@
-// src/shared/ui/Modal/index.tsx
+
 import { useEffect } from 'react'
 
 interface ModalProps {

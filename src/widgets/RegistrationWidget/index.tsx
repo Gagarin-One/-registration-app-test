@@ -1,4 +1,4 @@
-// src/widgets/RegistrationWidget/index.tsx
+
 import { useState } from 'react'
 import { LectureList } from '../../features/LectureList'
 import { RegistrationForm } from '../../features/RegistrationForm'

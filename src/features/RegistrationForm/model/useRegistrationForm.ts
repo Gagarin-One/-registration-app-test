@@ -1,4 +1,4 @@
-// src/features/RegistrationForm/model/useRegistrationForm.ts
+
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { registrationSchema, type RegistrationFormData } from './schema'

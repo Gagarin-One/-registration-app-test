@@ -1,4 +1,4 @@
-// src/features/LectureList/ui/AccordionGroup.tsx
+
 import { useState } from 'react'
 import { LectureCard } from './LectureCard'
 import type { LectureGroup } from '../../../entities/lecture/model/types'

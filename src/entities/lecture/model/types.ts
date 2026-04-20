@@ -1,4 +1,4 @@
-// src/entities/lecture/model/types.ts
+
 export interface Lecture {
   id: string
   time: string

@@ -1,4 +1,4 @@
-// src/features/RegistrationForm/ui/InputField.tsx
+
 import { forwardRef, type InputHTMLAttributes } from 'react'
 
 interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {

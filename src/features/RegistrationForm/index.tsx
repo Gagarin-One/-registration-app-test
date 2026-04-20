@@ -1,4 +1,4 @@
-// src/features/RegistrationForm/index.tsx
+
 import { InputField } from './ui/InputField'
 import { useRegistrationForm } from './model/useRegistrationForm'
 

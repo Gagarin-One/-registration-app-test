@@ -1,4 +1,4 @@
-// src/pages/RegistrationPage.tsx
+
 import { RegistrationWidget } from '../widgets/RegistrationWidget'
 
 export const RegistrationPage = () => {
