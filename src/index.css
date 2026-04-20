@@ -16,6 +16,7 @@
   
   html {
     min-width: 290px;
+    font-family: 'Montserrat', sans-serif;
   }
   
   body {
@@ -24,10 +25,148 @@
     color: #FFFFFF;
     min-width: 290px;
     overflow-x: auto;
+    font-size: 10px;
+    line-height: 12px;
+  }
+  
+  @media (min-width: 376px) {
+    body {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    body {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
   
   #root {
     min-width: 290px;
+  }
+}
+
+@layer components {
+  .text-h1 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  
+  @media (min-width: 376px) {
+    .text-h1 {
+      font-size: 32px;
+      line-height: 39px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-h1 {
+      font-size: 40px;
+      line-height: 48px;
+    }
+  }
+  
+  .text-h2 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  
+  @media (min-width: 376px) {
+    .text-h2 {
+      font-size: 32px;
+      line-height: 39px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-h2 {
+      font-size: 40px;
+      line-height: 48px;
+    }
+  }
+  
+  .text-h3 {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  
+  @media (min-width: 376px) {
+    .text-h3 {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-h3 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+  
+  .text-body-l {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  
+  @media (min-width: 376px) {
+    .text-body-l {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-body-l {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+  
+  .text-body-m {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+  }
+  
+  @media (min-width: 376px) {
+    .text-body-m {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-body-m {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  
+  .text-caption {
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+  }
+  
+  @media (min-width: 376px) {
+    .text-caption {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-caption {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 }
 

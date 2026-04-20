@@ -1,3 +1,4 @@
+// src/shared/ui/Modal/index.tsx
 import { useEffect } from 'react'
 
 interface ModalProps {
@@ -40,29 +41,29 @@ export const Modal = ({ isOpen, onClose, title, message, type }: ModalProps) => 
           onClick={onClose}
           className="absolute top-4 right-4 text-text-primary/40 hover:text-text-primary/60 transition-colors"
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
-        <div className={`w-16 h-16 ${bgColor} rounded-full flex items-center justify-center mx-auto mb-6`}>
-          <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className={`w-12 h-12 md:w-16 md:h-16 ${bgColor} rounded-full flex items-center justify-center mx-auto mb-6`}>
+          <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={iconPath} />
           </svg>
         </div>
 
-        <h3 className="text-h3-mobile md:text-h3-tablet lg:text-h3-desktop font-semibold text-center mb-3 text-text-primary">
+        <h3 className="text-h3 text-center mb-3 text-text-primary">
           {title}
         </h3>
         
-        <p className="text-body-m-mobile md:text-body-m-tablet lg:text-body-m-desktop text-text-primary/70 text-center">
+        <p className="text-body-m text-text-primary/70 text-center">
           {message}
         </p>
 
         <button
           onClick={onClose}
           className={`w-full mt-8 py-3 px-4 rounded-xl font-semibold text-white transition-all
-            ${bgColor} hover:opacity-90`}
+            ${bgColor} hover:opacity-90 text-body-m`}
         >
           Закрыть
         </button>

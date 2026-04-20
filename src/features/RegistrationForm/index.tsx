@@ -1,3 +1,4 @@
+// src/features/RegistrationForm/index.tsx
 import { useForm } from 'react-hook-form'
 import { registrationSchema, type RegistrationFormData } from './model/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -43,7 +44,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full">
-      <div className="grid grid-cols-1 min-[376px]:grid-cols-2 lg:grid-cols-1 gap-[24px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-[24px]">
         <InputField
           label="ФИО*"
           placeholder="Иванов Иван Иванович"
@@ -60,7 +61,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
         />
       </div>
       
-      <div className="grid grid-cols-1 min-[376px]:grid-cols-2 lg:grid-cols-1 gap-[24px] mt-[24px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-[24px] mt-[24px]">
         <InputField
           label="Компания*"
           placeholder="Название компании"
@@ -87,7 +88,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
       </div>
       
       <div className="flex flex-col gap-[8px] mt-[24px]">
-        <label className="font-['Montserrat'] font-normal text-[14px] leading-[20px] min-[376px]:text-[14px] min-[376px]:leading-[20px] lg:text-[16px] lg:leading-[24px] text-white">
+        <label className="text-body-m text-white">
           Ваши вопросы к обсуждению
         </label>
         <textarea
@@ -95,10 +96,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
           rows={6}
           className="w-full px-[8px] py-[8px] rounded-[8px] text-white placeholder-white/30
             focus:outline-none focus:ring-2 focus:ring-[#75C9EA] focus:border-transparent
-            resize-none transition-all font-['Montserrat'] font-normal
-            text-[10px] leading-[12px]
-            min-[376px]:text-[12px] min-[376px]:leading-[20px]
-            lg:text-[14px] lg:leading-[20px]"
+            resize-none transition-all text-caption"
           style={{
             background: 'rgba(0, 12, 20, 0.5)',
             border: 'none'
@@ -107,38 +105,27 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
         />
       </div>
       
-      <div className="font-['Montserrat'] font-normal
-        text-[12px] leading-[15px]
-        min-[376px]:text-[14px] min-[376px]:leading-[20px]
-        lg:text-[16px] lg:leading-[24px]
-        text-white mt-[48px]">
-        Выбрано {selectedCount} лекции
+      <div className="text-body-m text-white mt-[48px]">
+        Выбрано <span style={{ color: 'var(--color-accent-blue)' }}>{selectedCount}</span> лекции
       </div>
       
       <div className="flex flex-col gap-[8px] mt-[48px]">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-[48px] font-['Montserrat'] font-normal
-            text-[12px] leading-[15px]
-            min-[376px]:text-[14px] min-[376px]:leading-[20px]
-            lg:text-[16px] lg:leading-[24px]
-            text-white hover:opacity-90 transition-all duration-300
+          className="w-full h-[48px] text-body-m text-white
+            hover:opacity-90 transition-all duration-300
             disabled:opacity-50 disabled:cursor-not-allowed"
           style={{
-            background: 'var(--gradient-card) padding-box border-box',
-            border: '1px solid transparent',
+            background: 'var(--gradient-card)',
+            border: '1px solid #75C9EA',
             borderRadius: '8px'
           }}
         >
           {isSubmitting ? 'Отправка...' : 'Зарегистрироваться'}
         </button>
         
-        <p className="font-['Montserrat'] font-normal
-          text-[10px] leading-[12px]
-          min-[376px]:text-[12px] min-[376px]:leading-[20px]
-          lg:text-[14px] lg:leading-[20px]
-          text-center text-white/30">
+        <p className="text-caption text-center text-white/30">
           Нажимая кнопку, вы соглашаетесь с{' '}
           <span className="underline">политикой обработки персональных данных.</span>
         </p>

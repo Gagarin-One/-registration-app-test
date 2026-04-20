@@ -22,28 +22,28 @@ export const RegistrationWidget = () => {
 
   return (
     <div className="flex flex-col lg:flex-row lg:gap-[25px] justify-center">
-      <div className="flex-1 max-w-[743px] mx-auto lg:mx-0">
-        <div className="text-center md:text-left mb-6 md:mb-[24px]">
-          <h2 className="font-['Montserrat'] font-semibold text-[40px] leading-[48px] md:text-[40px] md:leading-[48px] text-white mb-3 md:mb-[24px]">
+      <div className="flex-1 lg:max-w-[743px] w-full mx-auto lg:mx-0">
+        <div className="mb-6 md:mb-[24px] max-w-[546px] mx-auto lg:mx-0">
+          <h2 className="text-h2 text-white mb-3 md:mb-[24px] text-left">
             Программа лектория
           </h2>
-          <p className="font-['Montserrat'] font-normal text-[18px] leading-[28px] text-white/70 max-w-[507px]">
+          <p className="text-body-l text-white/70 text-left">
             Выберите интересующие вас темы и составьте индивидуальное расписание. Регистрация доступна на каждое событие отдельно.
           </p>
         </div>
         <LectureList />
       </div>
 
-      <div className="w-full lg:w-[360px] mx-auto lg:mx-0 mt-8 lg:mt-0">
+      <div className="w-full lg:w-[360px] mx-auto lg:mx-0 mt-[48px] md:mt-8 lg:mt-0">
         <h2 
-          className="font-['Montserrat'] font-semibold text-[40px] leading-[48px] text-white mb-[48px] text-center w-[267px] h-[96px] lg:mx-auto max-[376px]:text-[16px] mx-auto"
+          className="text-h2 text-white mb-[24px] md:mb-[48px] text-center w-full lg:w-[277px] lg:h-[96px] lg:mx-auto mx-auto"
           style={{ letterSpacing: '-0.5%' }}
         >
           Регистрация на лекторий
         </h2>
         
         <div 
-          className="p-[48px] max-lg:p-[24px] max-sm:p-[16px]"
+          className="p-[24px] md:p-[48px]"
           style={{
             background: 'linear-gradient(90deg, rgba(0, 109, 239, 0.1) 0%, rgba(114, 199, 252, 0.1) 100%)',
             border: '1px solid #75C9EA',

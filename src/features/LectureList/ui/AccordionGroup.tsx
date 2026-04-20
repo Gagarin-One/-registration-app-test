@@ -11,20 +11,20 @@ export const AccordionGroup = ({ group }: AccordionGroupProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="w-full max-w-[743px] mt-[48px]" style={{
+    <div className="w-full lg:max-w-[743px] mb-[24px] lg:mb-[32px]" style={{
       borderBottom: '1px solid',
       borderImage: 'linear-gradient(90deg, #77CDDD 0%, #0BA1DD 100%) 1'
     }}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-0 pb-4 flex items-center transition-colors"
+        className="w-full px-0 py-4 flex items-center transition-colors"
         
       >
-        <h3 className="font-['Montserrat'] font-semibold text-[24px] leading-[32px] text-white">
+        <h3 className="text-h3 text-white">
           {group.date}
         </h3>
         <svg
-          className={`ml-[10px] w-6 h-6 text-white/60 transition-transform duration-300 ${
+          className={`ml-[10px] w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white/60 transition-transform duration-300 ${
             isOpen ? 'rotate-180' : ''
           }`}
           fill="none"
