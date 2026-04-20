@@ -75,7 +75,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
       </div>
 
       {/* Кол-во лекций */}
-      <div className="text-body-m text-white mt-[48px]">
+      <div className="text-body-m text-white mt-[24px]">
         Выбрано <span className="text-accent-blue">{selectedCount}</span> лекции
       </div>
 
