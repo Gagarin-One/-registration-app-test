@@ -1,9 +1,6 @@
 // src/features/RegistrationForm/index.tsx
-import { useForm } from 'react-hook-form'
-import { registrationSchema, type RegistrationFormData } from './model/schema'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { InputField } from './ui/InputField'
-import { useLectures } from '../../entities/lecture/model/useLectures'
+import { useRegistrationForm } from './model/useRegistrationForm'
 
 interface RegistrationFormProps {
   onSuccess: () => void
@@ -12,35 +9,13 @@ interface RegistrationFormProps {
 }
 
 export const RegistrationForm = ({ onSuccess, onError, selectedCount }: RegistrationFormProps) => {
-  const { clearSelection } = useLectures()
-  
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
-    reset
-  } = useForm<RegistrationFormData>({
-    resolver: zodResolver(registrationSchema)
-  })
-
-  const onSubmit = async (data: RegistrationFormData) => {
-    try {
-      const shouldSucceed = Math.random() > 0.3
-      
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
-      if (shouldSucceed) {
-        console.log('Form data:', { ...data, selectedLectures: selectedCount })
-        onSuccess()
-        reset()
-        clearSelection()
-      } else {
-        throw new Error('Сервер временно недоступен. Пожалуйста, попробуйте позже.')
-      }
-    } catch (error) {
-      onError(error instanceof Error ? error.message : 'Произошла неизвестная ошибка')
-    }
-  }
+    errors,
+    isSubmitting,
+    onSubmit
+  } = useRegistrationForm({ onSuccess, onError, selectedCount })
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full">
@@ -101,7 +76,7 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
         />
       </div>
       
-      <div className="text-body-m text-white mt-[48px]">
+      <div className="text-body-m text-white mt-[24px]">
         Выбрано <span className="text-accent-blue">{selectedCount}</span> лекции
       </div>
       
