@@ -11,14 +11,10 @@ export const AccordionGroup = ({ group }: AccordionGroupProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="w-full lg:max-w-[743px] mb-[24px] lg:mb-[32px]" style={{
-      borderBottom: '1px solid',
-      borderImage: 'linear-gradient(90deg, #77CDDD 0%, #0BA1DD 100%) 1'
-    }}>
+    <div className="w-full lg:max-w-[743px] mb-[24px] lg:mb-[32px] border-gradient-bottom">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-0 py-4 flex items-center transition-colors"
-        
       >
         <h3 className="text-h3 text-white">
           {group.date}
@@ -36,7 +32,7 @@ export const AccordionGroup = ({ group }: AccordionGroupProps) => {
       </button>
       
       {isOpen && (
-        <div >
+        <div>
           {group.lectures.map((lecture) => (
             <LectureCard key={lecture.id} lecture={lecture} />
           ))}

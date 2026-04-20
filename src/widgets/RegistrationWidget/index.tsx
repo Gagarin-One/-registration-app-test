@@ -42,14 +42,7 @@ export const RegistrationWidget = () => {
           Регистрация на лекторий
         </h2>
         
-        <div 
-          className="p-[24px] md:p-[48px]"
-          style={{
-            background: 'linear-gradient(90deg, rgba(0, 109, 239, 0.1) 0%, rgba(114, 199, 252, 0.1) 100%)',
-            border: '1px solid #75C9EA',
-            borderRadius: '8px'
-          }}
-        >
+        <div className="p-[24px] md:p-[48px] bg-gradient-card border border-accent-blue rounded-[8px]">
           <RegistrationForm 
             onSuccess={handleSuccessSubmit}
             onError={handleErrorSubmit}

@@ -96,17 +96,13 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
           rows={6}
           className="w-full px-[8px] py-[8px] rounded-[8px] text-white placeholder-white/30
             focus:outline-none focus:ring-2 focus:ring-[#75C9EA] focus:border-transparent
-            resize-none transition-all text-caption"
-          style={{
-            background: 'rgba(0, 12, 20, 0.5)',
-            border: 'none'
-          }}
+            resize-none transition-all text-caption bg-input-dark"
           placeholder="Какие темы вам особенно интересны?"
         />
       </div>
       
       <div className="text-body-m text-white mt-[48px]">
-        Выбрано <span style={{ color: 'var(--color-accent-blue)' }}>{selectedCount}</span> лекции
+        Выбрано <span className="text-accent-blue">{selectedCount}</span> лекции
       </div>
       
       <div className="flex flex-col gap-[8px] mt-[48px]">
@@ -115,12 +111,8 @@ export const RegistrationForm = ({ onSuccess, onError, selectedCount }: Registra
           disabled={isSubmitting}
           className="w-full h-[48px] text-body-m text-white
             hover:opacity-90 transition-all duration-300
-            disabled:opacity-50 disabled:cursor-not-allowed"
-          style={{
-            background: 'var(--gradient-card)',
-            border: '1px solid #75C9EA',
-            borderRadius: '8px'
-          }}
+            disabled:opacity-50 disabled:cursor-not-allowed
+            bg-gradient-card border border-accent-blue rounded-[8px]"
         >
           {isSubmitting ? 'Отправка...' : 'Зарегистрироваться'}
         </button>

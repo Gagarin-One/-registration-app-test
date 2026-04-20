@@ -15,21 +15,15 @@ export const LectureCard = ({ lecture }: LectureCardProps) => {
   return (
     <div
       onClick={() => toggleLecture(lecture.id)}
-      className={`w-full lg:max-w-[743px] mb-4 cursor-pointer transition-all ${
-        selected ? 'ring-2 ring-[#75C9EA]' : ''
-      }`}
-      style={{
-        background: 'linear-gradient(90deg, rgba(0, 109, 239, 0.1) 0%, rgba(114, 199, 252, 0.1) 100%)',
-        borderRadius: '8px',
-        padding: '16px'
-      }}
+      className={`w-full lg:max-w-[743px] mb-4 cursor-pointer transition-all
+        bg-gradient-card rounded-[8px] p-[16px]
+        ${selected ? 'ring-2 ring-accent-blue' : ''}`}
     >
       <div className="flex flex-row items-start gap-3 md:gap-4">
         <div 
-          className="w-[80px] h-[120px] md:w-[120px] md:h-[160px] flex-shrink-0 rounded-lg overflow-hidden"
+          className="w-[80px] h-[120px] md:w-[120px] md:h-[160px] flex-shrink-0 rounded-lg overflow-hidden bg-cover bg-center p-[12px]"
           style={{
-            background: `url(${imageSource}) center/cover, rgba(114, 199, 252, 0.1)`,
-            padding: '12px'
+            backgroundImage: `url(${imageSource}), linear-gradient(rgba(114, 199, 252, 0.1), rgba(114, 199, 252, 0.1))`
           }}
         >
           <div className="w-full h-full" />
@@ -37,12 +31,8 @@ export const LectureCard = ({ lecture }: LectureCardProps) => {
         
         <div className="flex flex-col gap-2 flex-1">
           <div 
-            className="inline-flex items-center justify-center px-3 md:px-4 py-0.5 w-auto max-w-[104px] h-[24px]"
-            style={{
-              background: 'var(--gradient-card)',
-              border: '1px solid #75C9EA',
-              borderRadius: '8px'
-            }}
+            className="inline-flex items-center justify-center px-3 md:px-4 py-0.5 w-auto max-w-[104px] h-[24px]
+              bg-gradient-card border border-accent-blue rounded-[8px]"
           >
             <span className="text-caption text-white whitespace-nowrap">
               {lecture.time}

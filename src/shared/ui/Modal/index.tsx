@@ -36,10 +36,10 @@ export const Modal = ({ isOpen, onClose, title, message, type }: ModalProps) => 
         onClick={onClose}
       />
       
-      <div className="relative bg-bg-primary border border-text-primary/10 rounded-2xl max-w-md w-full p-6 md:p-8 shadow-xl">
+      <div className="relative bg-bg-primary border border-white/10 rounded-2xl max-w-md w-full p-6 md:p-8 shadow-xl">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-text-primary/40 hover:text-text-primary/60 transition-colors"
+          className="absolute top-4 right-4 text-white/40 hover:text-white/60 transition-colors"
         >
           <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -52,11 +52,11 @@ export const Modal = ({ isOpen, onClose, title, message, type }: ModalProps) => 
           </svg>
         </div>
 
-        <h3 className="text-h3 text-center mb-3 text-text-primary">
+        <h3 className="text-h3 text-center mb-3 text-white">
           {title}
         </h3>
         
-        <p className="text-body-m text-text-primary/70 text-center">
+        <p className="text-body-m text-white/70 text-center">
           {message}
         </p>
 

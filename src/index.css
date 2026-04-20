@@ -181,4 +181,24 @@
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, #77CDDD 0%, #0BA1DD 100%) 1;
   }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .bg-input-dark {
+    background: rgba(0, 12, 20, 0.5);
+  }
+  
+  .border-accent-blue {
+    border-color: #75C9EA;
+  }
+  
+  .ring-accent-blue {
+    --tw-ring-color: #75C9EA;
+  }
+  
+  .text-accent-blue {
+    color: #75C9EA;
+  }
 }
