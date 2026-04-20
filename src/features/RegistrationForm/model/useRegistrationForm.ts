@@ -1,6 +1,7 @@
 
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useCallback } from 'react'
 import { registrationSchema, type RegistrationFormData } from './schema'
 import { useLectures } from '../../../entities/lecture/model/useLectures'
 
@@ -10,9 +11,13 @@ interface UseRegistrationFormProps {
   selectedCount: number
 }
 
-export const useRegistrationForm = ({ onSuccess, onError, selectedCount }: UseRegistrationFormProps) => {
+export const useRegistrationForm = ({
+  onSuccess,
+  onError,
+  selectedCount
+}: UseRegistrationFormProps) => {
   const { clearSelection } = useLectures()
-  
+
   const {
     register,
     handleSubmit,
@@ -22,12 +27,12 @@ export const useRegistrationForm = ({ onSuccess, onError, selectedCount }: UseRe
     resolver: zodResolver(registrationSchema)
   })
 
-  const onSubmit = async (data: RegistrationFormData) => {
+  const onSubmit = useCallback(async (data: RegistrationFormData) => {
     try {
       const shouldSucceed = Math.random() > 0.3
-      
+
       await new Promise(resolve => setTimeout(resolve, 1500))
-      
+
       if (shouldSucceed) {
         console.log('Form data:', { ...data, selectedLectures: selectedCount })
         onSuccess()
@@ -39,7 +44,7 @@ export const useRegistrationForm = ({ onSuccess, onError, selectedCount }: UseRe
     } catch (error) {
       onError(error instanceof Error ? error.message : 'Произошла неизвестная ошибка')
     }
-  }
+  }, [onSuccess, onError, selectedCount, reset, clearSelection])
 
   return {
     register,
