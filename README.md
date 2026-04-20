@@ -22,8 +22,6 @@ React Hook Form
 
 Zod
 
-Zustand
-
 Vite
 
 ### Адаптивность
