@@ -1,4 +1,3 @@
-// src/widgets/RegistrationWidget/ui/RegistrationWidget.tsx
 import { LectureList } from '../../../features/LectureList'
 import { RegistrationForm } from '../../../features/RegistrationForm'
 import { Modal } from '../../../shared/ui/Modal'

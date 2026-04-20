@@ -1,4 +1,3 @@
-// src/features/LectureList/ui/AccordionGroup.tsx
 import { LectureCard } from './LectureCard'
 import { useAccordion } from '../model/useAccordion'
 import type { LectureGroup } from '../../../entities/lecture/model/types'

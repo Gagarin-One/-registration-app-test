@@ -1,4 +1,3 @@
-// src/features/LectureList/ui/LectureCard.tsx
 import { defaultFrame } from '../../../entities/lecture/api/mockData'
 import type { Lecture } from '../../../entities/lecture/model/types'
 

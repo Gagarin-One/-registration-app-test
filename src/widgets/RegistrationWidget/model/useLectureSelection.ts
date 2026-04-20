@@ -1,4 +1,3 @@
-// src/widgets/RegistrationWidget/model/useLectureSelection.ts
 import { useState, useCallback, useMemo } from 'react'
 
 export const useLectureSelection = () => {
